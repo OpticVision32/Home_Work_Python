@@ -3,13 +3,13 @@
 number = int(input('Введите шестизначное число: '))
 summA = 0
 summB = 0
-while (number > 999):
-    summB += number % 10
-    number = int(number / 10)
-while (number > 0):
-    summA += number % 10
-    number = int(number / 10)
-
+while number > 0:
+    if number > 999:
+        summB += number % 10
+        number = int(number / 10)
+    else:
+        summA += number % 10
+        number = int(number / 10)
 if (summA == summB):
     print('Билет счастливый')
 else:
