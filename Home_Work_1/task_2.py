@@ -2,7 +2,7 @@
 
 number = int(input('Введите общее число журавликов: '))
 
-katya = int((number / 3) * 2)
-petyaAndSerezha = katya / 4
+valueOne = int(number / 3 * 2)
+valueOneAndTwo = valueOne / 4
 
-print(f'Катя сделала {katya} журавликов, Петя - {petyaAndSerezha}, Сережа - {petyaAndSerezha}')
+print(f'Катя сделала {valueOne} журавликов, Петя - {valueOneAndTwo}, Сережа - {valueOneAndTwo}')
