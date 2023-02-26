@@ -11,26 +11,23 @@ import random
 
 listSize = int(input('Введите размер списка: '))
 numberSearch = int(input('Введите число которое нужно найти: '))
-listOne = []
-index = 0
-closeInSize = 0
-finishCloseInSize = numberSearch
+listOne = list()
 for i in range(listSize):
     listOne.append(random.randint(1, 10))
+low = 0
+high = listSize - 1
 print(*listOne)
-for j in range(len(listOne) - 1):
-    if numberSearch == listOne[j]:
-        print(f'Число {numberSearch} есть в списке')
+listOne.sort()
+print(*listOne)
+
+while low <= high:
+    mid = low + (high - low) // 2
+    if listOne[mid] > numberSearch:
+        high = mid - 1
+    elif listOne[mid] < numberSearch:
+        low = mid + 1
+    else:
+        print(listOne[mid])
         break
-    elif numberSearch > listOne[j]:
-        closeInSize = numberSearch - listOne[j]
-        if closeInSize < finishCloseInSize:
-            finishCloseInSize = closeInSize
-            index = j
-    elif numberSearch < listOne[j]:
-        closeInSize = listOne[j] - numberSearch
-        if closeInSize < finishCloseInSize:
-            finishCloseInSize = closeInSize
-            index = j
 else:
-    print(f'Cамым близким по величине элемент к заданному числу {numberSearch} является число {listOne[index]}')
+    print(listOne[mid])
